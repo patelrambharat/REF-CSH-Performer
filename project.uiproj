@@ -1,0 +1,6 @@
+{
+  "Name": "REF_CSH_Performer",
+  "ProjectType": "Process",
+  "Description": "REF_CSH_Performer",
+  "MainFile": "Main.xaml"
+}
