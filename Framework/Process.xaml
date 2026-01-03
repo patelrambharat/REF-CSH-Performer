@@ -95,7 +95,7 @@
       <AssemblyReference>System.Reflection.Metadata</AssemblyReference>
     </scg:List>
   </TextExpression.ReferencesForImplementation>
-  <Sequence sap2010:Annotation.AnnotationText="Invoke major steps of the business process, which are usually implemented by multiple subworkflows.&#xA;&#xA;If a BusinessRuleException is thrown, the transaction is skipped. &#xA;If another kind of exception occurs, the current transaction can be retried. " DisplayName="Process" sap:VirtualizedContainerService.HintSize="592,904" sap2010:WorkflowViewState.IdRef="Sequence_1">
+  <Sequence sap2010:Annotation.AnnotationText="Invoke major steps of the business process, which are usually implemented by multiple subworkflows.&#xA;&#xA;If a BusinessRuleException is thrown, the transaction is skipped. &#xA;If another kind of exception occurs, the current transaction can be retried. " DisplayName="Process" sap:VirtualizedContainerService.HintSize="1024,1086.6666666666667" sap2010:WorkflowViewState.IdRef="Sequence_1">
     <Sequence.Variables>
       <Variable x:TypeArguments="x:String" Name="str_FinalHashCode" />
       <Variable x:TypeArguments="x:String" Name="str_HashOutput" />
@@ -122,11 +122,19 @@
         <OutArgument x:TypeArguments="x:String" x:Key="out_str_FinalHashCode">[str_FinalHashCode]</OutArgument>
       </ui:InvokeWorkflowFile.Arguments>
     </ui:InvokeWorkflowFile>
-    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="REF-CSH-HashCode - Invoke Workflow File (REF-CSH-HashCode.xaml)" sap:VirtualizedContainerService.HintSize="450,173.33333333333334" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_3" UnSafe="False" WorkflowFileName="REF-CSH-HashCode.xaml">
+    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="REF-CSH-HashCode - Invoke Workflow File (REF-CSH-HashCode.xaml)" sap:VirtualizedContainerService.HintSize="450,182.66666666666666" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_3" UnSafe="False" WorkflowFileName="REF-CSH-HashCode.xaml">
       <ui:InvokeWorkflowFile.Arguments>
         <InArgument x:TypeArguments="x:String" x:Key="in_HashCodeURL">[in_Config("HashURL").ToString]</InArgument>
         <InArgument x:TypeArguments="x:String" x:Key="in_HashCode">[str_FinalHashCode]</InArgument>
         <OutArgument x:TypeArguments="x:String" x:Key="out_str_OutputHashCode">[str_HashOutput]</OutArgument>
+      </ui:InvokeWorkflowFile.Arguments>
+    </ui:InvokeWorkflowFile>
+    <ui:InvokeWorkflowFile ArgumentsVariable="{x:Null}" ContinueOnError="{x:Null}" DisplayName="REF-CSH-UpdateWorkItems - Invoke Workflow File (REF-CSH-UpdateWorkItems.xaml)" sap:VirtualizedContainerService.HintSize="450,173.33333333333334" sap2010:WorkflowViewState.IdRef="InvokeWorkflowFile_4" UnSafe="False" WorkflowFileName="REF-CSH-UpdateWorkItems.xaml">
+      <ui:InvokeWorkflowFile.Arguments>
+        <InArgument x:TypeArguments="x:String" x:Key="in_ACME_WorkItemsUpdateURL">[in_Config("ACME_WorkItemsUpdateURL").ToString]</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_ACME_WorkItemsURL">[in_Config("ACME_WorkItemDetailsURL").ToString]</InArgument>
+        <InArgument x:TypeArguments="x:String" x:Key="in_str_OutputHashCode">[str_HashOutput]</InArgument>
+        <InArgument x:TypeArguments="ui:QueueItem" x:Key="in_TranItem">[in_TransactionItem]</InArgument>
       </ui:InvokeWorkflowFile.Arguments>
     </ui:InvokeWorkflowFile>
   </Sequence>
